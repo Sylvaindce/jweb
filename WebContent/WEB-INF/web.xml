@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+	<display-name>jweb</display-name>
+	<filter>
+		<filter-name>Set Character Encoding</filter-name>
+		<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ignore</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>Set Character Encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>        
+    
+	<filter>
+		<filter-name>LoadBdd</filter-name>
+		<filter-class>com.jweb.filters.LoadBdd</filter-class>
+	</filter>
+	<filter-mapping>
+	<filter-name>LoadBdd</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>    
+	<listener>
+		<listener-class>com.jweb.config.InitDAOFactory</listener-class>
+	</listener>
+    
+	<servlet>
+		<servlet-name>admin</servlet-name>
+		<servlet-class>com.jweb.servlets.admin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>admin</servlet-name>
+		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>delNews</servlet-name>
+		<servlet-class>com.jweb.servlets.delNews</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>delNews</servlet-name>
+		<url-pattern>/delNews</url-pattern>
+	</servlet-mapping>
+    
+    <servlet>
+		<servlet-name>delUser</servlet-name>
+		<servlet-class>com.jweb.servlets.delUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>delUser</servlet-name>
+		<url-pattern>/delUser</url-pattern>
+	</servlet-mapping>
+    
+    <servlet>
+		<servlet-name>newsAdmin</servlet-name>
+		<servlet-class>com.jweb.servlets.newsAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>newsAdmin</servlet-name>
+		<url-pattern>/newsAdmin</url-pattern>
+	</servlet-mapping>
+    
+	<servlet>
+		<servlet-name>createNews</servlet-name>
+		<servlet-class>com.jweb.servlets.createNews</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>createNews</servlet-name>
+		<url-pattern>/createNews</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>createUser</servlet-name>
+		<servlet-class>com.jweb.servlets.createUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>createUser</servlet-name>
+		<url-pattern>/createUser</url-pattern>
+	</servlet-mapping>
+	  
+	<servlet>
+		<servlet-name>listUsers</servlet-name>
+		<servlet-class>com.jweb.servlets.listUsers</servlet-class>
+	</servlet>
+	<servlet-mapping>
+  		<servlet-name>listUsers</servlet-name>
+  		<url-pattern>/listUsers</url-pattern>
+	</servlet-mapping>
+  
+ 	<servlet>
+ 		<servlet-name>smartphone</servlet-name>
+		<servlet-class>com.jweb.servlets.smartphone</servlet-class>
+  	</servlet>
+	<servlet-mapping>
+ 		<servlet-name>smartphone</servlet-name>
+ 		<url-pattern>/smartphone</url-pattern>
+ 	</servlet-mapping>
+  
+  	<servlet>
+    	<servlet-name>news</servlet-name>
+    	<servlet-class>com.jweb.servlets.news</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>news</servlet-name>
+		<url-pattern>/news</url-pattern>
+  	</servlet-mapping>
+
+  	<welcome-file-list>
+    	<welcome-file>index.html</welcome-file>
+    	<welcome-file>index.htm</welcome-file>
+    	<welcome-file>index.jsp</welcome-file>
+    	<welcome-file>default.html</welcome-file>
+    	<welcome-file>default.htm</welcome-file>
+    	<welcome-file>default.jsp</welcome-file>
+ 	 </welcome-file-list>
+</web-app>
